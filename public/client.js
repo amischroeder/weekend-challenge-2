@@ -100,4 +100,38 @@ $(document).ready(function () {
             })
         }
     })
+    $('#divideButton').on('click', function () {
+        console.log('divideButton clicked!');
+        var firstNumber = $('#numberOne').val();
+        var secondNumber = $('#numberTwo').val();
+        var inputObject = {
+            firstInput: firstNumber,
+            secondInput: secondNumber,
+            type: "Divide"
+        }
+        function divideNumbers() {
+            var sum = parseInt(inputObject.firstInput) / parseInt(inputObject.secondInput);
+            $('body').append('<div>' + sum + '</div>')
+        }
+        $.ajax({
+            method: 'POST',
+            url: '/calculator',
+            data: inputObject,
+            success: function (response) {
+                console.log(response);
+                divideNumbers();
+            }
+        })
+
+        function getNumbers() {
+            $.ajax({
+                method: 'GET',
+                url: '/calculator',
+                success: function (response) {
+                    console.log(response);
+                    divideNumbers(response);
+                }
+            })
+        }
+    })
 });

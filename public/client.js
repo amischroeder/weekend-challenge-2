@@ -10,7 +10,7 @@ $(document).ready(function () {
         }
         function addNumbers() {
             var sum = parseInt(inputObject.firstInput) + parseInt(inputObject.secondInput);
-            $('body').append('<div>' + sum + '</div>')
+            $('#answerSpace').append('<div>' + sum + '</div>')
         }
         $.ajax({
             method: 'POST',
@@ -43,7 +43,7 @@ $(document).ready(function () {
         }
         function subtractNumbers() {
             var sum = parseInt(inputObject.firstInput) - parseInt(inputObject.secondInput);
-            $('body').append('<div>' + sum + '</div>')
+            $('#answerSpace').append('<div>' + sum + '</div>')
         }
         $.ajax({
             method: 'POST',
@@ -77,7 +77,7 @@ $(document).ready(function () {
         }
         function multiplyNumbers() {
             var sum = parseInt(inputObject.firstInput) * parseInt(inputObject.secondInput);
-            $('body').append('<div>' + sum + '</div>')
+            $('#answerSpace').append('<div>' + sum + '</div>')
         }
         $.ajax({
             method: 'POST',
@@ -111,7 +111,7 @@ $(document).ready(function () {
         }
         function divideNumbers() {
             var sum = parseInt(inputObject.firstInput) / parseInt(inputObject.secondInput);
-            $('body').append('<div>' + sum + '</div>')
+            $('#answerSpace').append('<div>' + sum + '</div>')
         }
         $.ajax({
             method: 'POST',
@@ -138,5 +138,6 @@ $(document).ready(function () {
         console.log('clearButton clicked!');
         $('#numberOne').val('');
         $('#numberTwo').val('');
+        $('#answerSpace').empty();
     })
 });

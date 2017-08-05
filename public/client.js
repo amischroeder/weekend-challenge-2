@@ -134,4 +134,9 @@ $(document).ready(function () {
             })
         }
     })
+    $('#clearButton').on('click', function () {
+        console.log('clearButton clicked!');
+        $('#numberOne').val('');
+        $('#numberTwo').val('');
+    })
 });

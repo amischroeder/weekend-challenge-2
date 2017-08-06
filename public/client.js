@@ -12,6 +12,11 @@ $(document).ready(function () {
             }
         })
     }
+    $('.math').on('click', function () {
+        var firstNumber = $('#numberOne').val();
+        var secondNumber = $('#numberTwo').val(); 
+
+    })
     $('#addButton').on('click', function () {
         console.log('addButton clicked!');
         var firstNumber = $('#numberOne').val();
@@ -19,7 +24,7 @@ $(document).ready(function () {
         var inputObject = {
             firstInput: firstNumber,
             secondInput: secondNumber,
-            type: "Add"
+            type: ''
         }
         function addNumbers() {
             var sum = parseInt(inputObject.firstInput) + parseInt(inputObject.secondInput);

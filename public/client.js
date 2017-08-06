@@ -1,4 +1,17 @@
 $(document).ready(function () {
+     function getNumbers() {
+        $.ajax({
+            method: 'GET',
+            url: '/calculator',
+            success: function (response) {
+                console.log(response);
+                addNumbers (response);
+                subtractNumbers(response);
+                multiplyNumbers (response);
+                divideNumbers (response);
+            }
+        })
+    }
     $('#addButton').on('click', function () {
         console.log('addButton clicked!');
         var firstNumber = $('#numberOne').val();
@@ -12,26 +25,16 @@ $(document).ready(function () {
             var sum = parseInt(inputObject.firstInput) + parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
         }
-        $.ajax({
-            method: 'POST',
-            url: '/calculator',
-            data: inputObject,
-            success: function (response) {
-                console.log(response);
-                addNumbers();
-            }
-        })
+         $.ajax({
+             method: 'POST',
+             url: '/calculator',
+             data: inputObject,
+             success: function (response) {
+                 console.log(response);
+                 addNumbers();
+             }
+         })
     });
-    function getNumbers() {
-        $.ajax({
-            method: 'GET',
-            url: '/calculator',
-            success: function (response) {
-                console.log(response);
-                addNumbers(response);
-            }
-        })
-    }
     $('#subtractButton').on('click', function () {
         console.log('subtractButton clicked!');
         var firstNumber = $('#numberOne').val();
@@ -45,26 +48,15 @@ $(document).ready(function () {
             var sum = parseInt(inputObject.firstInput) - parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
         }
-        $.ajax({
-            method: 'POST',
-            url: '/calculator',
-            data: inputObject,
-            success: function (response) {
-                console.log(response);
-                subtractNumbers();
-            }
-        })
-
-        function getNumbers() {
-            $.ajax({
-                method: 'GET',
-                url: '/calculator',
-                success: function (response) {
-                    console.log(response);
-                    subtractNumbers(response);
-                }
-            })
-        }
+         $.ajax({
+             method: 'POST',
+             url: '/calculator',
+             data: inputObject,
+             success: function (response) {
+                 console.log(response);
+                 subtractNumbers();
+             }
+         })
     })
     $('#multiplyButton').on('click', function () {
         console.log('multiplyButton clicked!');
@@ -79,26 +71,15 @@ $(document).ready(function () {
             var sum = parseInt(inputObject.firstInput) * parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
         }
-        $.ajax({
-            method: 'POST',
-            url: '/calculator',
-            data: inputObject,
-            success: function (response) {
-                console.log(response);
-                multiplyNumbers();
-            }
-        })
-
-        function getNumbers() {
-            $.ajax({
-                method: 'GET',
-                url: '/calculator',
-                success: function (response) {
-                    console.log(response);
-                    multiplyNumbers(response);
-                }
-            })
-        }
+         $.ajax({
+             method: 'POST',
+             url: '/calculator',
+             data: inputObject,
+             success: function (response) {
+                 console.log(response);
+                 multiplyNumbers();
+             }
+         })
     })
     $('#divideButton').on('click', function () {
         console.log('divideButton clicked!');
@@ -113,26 +94,15 @@ $(document).ready(function () {
             var sum = parseInt(inputObject.firstInput) / parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
         }
-        $.ajax({
-            method: 'POST',
-            url: '/calculator',
-            data: inputObject,
-            success: function (response) {
-                console.log(response);
-                divideNumbers();
-            }
-        })
-
-        function getNumbers() {
-            $.ajax({
-                method: 'GET',
-                url: '/calculator',
-                success: function (response) {
-                    console.log(response);
-                    divideNumbers(response);
-                }
-            })
-        }
+         $.ajax({
+             method: 'POST',
+             url: '/calculator',
+             data: inputObject,
+             success: function (response) {
+                 console.log(response);
+                 divideNumbers();
+             }
+         })
     })
     $('#clearButton').on('click', function () {
         console.log('clearButton clicked!');

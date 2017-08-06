@@ -1,31 +1,30 @@
 $(document).ready(function () {
-     function getNumbers() {
-        $.ajax({
-            method: 'GET',
-            url: '/calculator',
-            success: function (response) {
-                console.log(response);
-                addNumbers (response);
-                subtractNumbers(response);
-                multiplyNumbers (response);
-                divideNumbers (response);
-            }
-        })
-    }
-    $('.math').on('click', function () {
+    //  function getNumbers() {
+    //     $.ajax({
+    //         method: 'GET',
+    //         url: '/calculator',
+    //         success: function (response) {
+    //             console.log(response);
+    //             addNumbers (response);
+    //             subtractNumbers(response);
+    //             multiplyNumbers (response);
+    //             divideNumbers (response);
+    //         }
+    //     })
+    // }
+    $('.mathButtons').on('click', function () {
+        console.log('Math button clicked');
         var firstNumber = $('#numberOne').val();
         var secondNumber = $('#numberTwo').val(); 
-
-    })
-    $('#addButton').on('click', function () {
-        console.log('addButton clicked!');
-        var firstNumber = $('#numberOne').val();
-        var secondNumber = $('#numberTwo').val();
+        var mathType = $(this).attr('id');
         var inputObject = {
             firstInput: firstNumber,
             secondInput: secondNumber,
-            type: ''
-        }
+            type: mathType
+        };
+
+    })
+    $('#addButton').on('click', function () {
         function addNumbers() {
             var sum = parseInt(inputObject.firstInput) + parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
@@ -41,14 +40,6 @@ $(document).ready(function () {
          })
     });
     $('#subtractButton').on('click', function () {
-        console.log('subtractButton clicked!');
-        var firstNumber = $('#numberOne').val();
-        var secondNumber = $('#numberTwo').val();
-        var inputObject = {
-            firstInput: firstNumber,
-            secondInput: secondNumber,
-            type: "Subtract"
-        }
         function subtractNumbers() {
             var sum = parseInt(inputObject.firstInput) - parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
@@ -65,13 +56,6 @@ $(document).ready(function () {
     })
     $('#multiplyButton').on('click', function () {
         console.log('multiplyButton clicked!');
-        var firstNumber = $('#numberOne').val();
-        var secondNumber = $('#numberTwo').val();
-        var inputObject = {
-            firstInput: firstNumber,
-            secondInput: secondNumber,
-            type: "Multiply"
-        }
         function multiplyNumbers() {
             var sum = parseInt(inputObject.firstInput) * parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')
@@ -88,13 +72,6 @@ $(document).ready(function () {
     })
     $('#divideButton').on('click', function () {
         console.log('divideButton clicked!');
-        var firstNumber = $('#numberOne').val();
-        var secondNumber = $('#numberTwo').val();
-        var inputObject = {
-            firstInput: firstNumber,
-            secondInput: secondNumber,
-            type: "Divide"
-        }
         function divideNumbers() {
             var sum = parseInt(inputObject.firstInput) / parseInt(inputObject.secondInput);
             $('#answerSpace').append('<div>' + sum + '</div>')

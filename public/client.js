@@ -23,7 +23,7 @@ $(document).ready(function () {
                  getNumbers();
              }
          })
-    }) //end click math button
+    }) 
 
       function getNumbers() {
         $.ajax({
@@ -37,7 +37,7 @@ $(document).ready(function () {
     }
 
     function getResult(response){
-        $('#answerSpace').append(response);
+        $('#answerSpace').text(response);
     }
     $('#clearButton').on('click', function () {
         console.log('clearButton clicked!');
@@ -45,31 +45,4 @@ $(document).ready(function () {
         $('#numberTwo').val('');
         $('#answerSpace').empty();
     })
-
-    // $('#addButton').on('click', function () {
-    //     function addNumbers() {
-    //         var sum = parseInt(inputObject.firstInput) + parseInt(inputObject.secondInput);
-    //         $('#answerSpace').append('<div>' + sum + '</div>')
-    //     }
-    // });
-    // $('#subtractButton').on('click', function () {
-    //     function subtractNumbers() {
-    //         var sum = parseInt(inputObject.firstInput) - parseInt(inputObject.secondInput);
-    //         $('#answerSpace').append('<div>' + sum + '</div>')
-    //     }
-    // })
-    // $('#multiplyButton').on('click', function () {
-    //     console.log('multiplyButton clicked!');
-    //     function multiplyNumbers() {
-    //         var sum = parseInt(inputObject.firstInput) * parseInt(inputObject.secondInput);
-    //         $('#answerSpace').append('<div>' + sum + '</div>')
-    //     }
-    // })
-    // $('#divideButton').on('click', function () {
-    //     console.log('divideButton clicked!');
-    //     function divideNumbers() {
-    //         var sum = parseInt(inputObject.firstInput) / parseInt(inputObject.secondInput);
-    //         $('#answerSpace').append('<div>' + sum + '</div>')
-    //     }
-    // })
 });
